@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="./content/nuget.css" rel="stylesheet" type="text/css">
+    <link href="./content/nuget.blog.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <header class="header">
+        <a href="https://nuget.org/"><img class="logo" src="./content/logo.png" title="NuGet Distributions" border="0"></a>
+        <div class="search">
+            <form action="http://www.nuget.org/packages" method="get" novalidate="novalidate">
+                <input id="searchbox" type="search" name="q" placeholder="SEARCH PACKAGES" autocomplete="off">
+                <input type="submit" id="searchbutton" value=" ">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://www.nuget.org/">Home</a></li>
+                <li><a href="https://www.nuget.org/packages">Packages</a></li>
+                <li><a href="https://docs.nuget.org/">Documentation</a></li>
+                <li class="current"><a href="https://dist.nuget.org/index.html">Downloads</a></li>
+                <li><a href="http://blog.nuget.org/">Blog</a></li>
+                <li><a href="https://www.nuget.org/policies/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div style="clear:both"></div>
+    </header>
+
+    <div class="subnav">
+        <nav class="sub">
+            <ul>
+                <li id="subnav-recent"><a href="http://blog.nuget.org/">Recent Posts</a></li>
+                <li id="subnav-archive"><a href="http://blog.nuget.org/archive.html">Archive</a></li>
+            </ul>
+        </nav>
+        <div class="twitter">
+            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./NuGet Team Blog_files/follow_button.fd774b599f565016d763dd860cb31c79.en.html"
+                style="position: static; visibility: visible; width: 103px; height: 20px;" data-screen-name="nuget"></iframe>
+            <script>
+                ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');
+            </script>
+        </div>
+        <a href="http://blog.nuget.org/feeds/atom.xml" class="feed"><img src="./NuGet Team Blog_files/feed.png" border="0"></a>
+        <div style="clear:both"></div>
+    </div>
+
+    <div class="content">
+        <style type="text/css">
+            #subnav-recent a {
+                color: black;
+            }
+        </style>
+
+        <section class="posts">
+
+            <article class="post">
+                <header>
+                    <h1><a href="http://blog.nuget.org/20160409/Anouncing-NuGet-3.4.2.html">Announcing NuGet 3.4.2</a></h1>
+                </header>
+                <p>We have listened to the feedback from the community, and we have tried our very best to turn around quickly
+                    and address this feedback. Our primary focus for 3.4.2 have been around improving the quality and performance
+                    of the product.</p>
+
+                <p>The complete list of issues fixed in this version is <a href="https://github.com/Nuget/Home/issues?q=is%3Aissue+milestone%3A3.4.2+is%3Aclosed">available on GitHub</a>.
+                    In this post, we’ll review the important changes in 3.4.2 release.</p>
+
+                <p>You can download the latest 3.4.2 VS extension and Windows x86 Commandline (RC) from <a href="https://dist.nuget.org/index.html">here</a>.</p>
+
+                <h2 id="performance-improvements">Performance Improvements</h2>
+
+                <ul>
+                    <li>We continue to invest heavily in performance improvements. For this release, we have significantly improved
+                        the performance of updates in a specific scenario, where updates on packages with deep dependency
+                        graphs took a really long time and hung Visual Studio.</li>
+                    <li>In addition to this change, we have fixed an issue where we were hitting the network twice when fetching
+                        the update count in the VS UI. This was partially responsible for some timeout issues customers experienced
+                        in 3.4/3.4.1.</li>
+                    <li>Finally, nuget restore without network traffic is 2.5x – 3x faster within Visual Studio.</li>
+                </ul>
+
+                <h2 id="changes">Changes</h2>
+
+                <p>We have fixed some issues that broke compatibility in some cases with Artifactory, Klondike and Nexus. We
+                    have further improved the quality of the ‘All Sources’ feature by fixing issues with merging versions
+                    and entries from multiple sources.</p>
+
+                <p>Our <a href="http://docs.nuget.org/release-notes/nuget-3.4.2">release notes for 3.4.2</a> and the <a href="https://github.com/Nuget/Home/issues?q=is%3Aissue+milestone%3A3.4.2+is%3Aclosed">issues list in GitHub</a>,
+                    goes into more details around the changes in this release.</p>
+
+                <h2 id="breaking-changes">Breaking Changes</h2>
+
+                <p>If you have not specified a <a href="https://docs.nuget.org/consume/nuget-config-file">DefaultPushSource in nuget.config</a>,
+                    and try to push a package without specifying the Source parameter, you will get the following error message
+                    in 3.4.2</p>
+
+                <p>“Source parameter was not specified”</p>
+
+                <p>We have heard feedback from package authors and seen it in the support requests that we receive on nuget.org,
+                    that having a default behavior like this causes accidental publish of proprietary software that was never
+                    meant to be consumed publically. NuGet has a huge ecosystem with multiple private and public hosts and
+                    this change enables authors to be prescriptive about their intentions around package publications.</p>
+
+                <h2 id="known-issues-in-342-windows-x86-commandline-rc">Known Issues in 3.4.2 Windows x86 Commandline (RC)</h2>
+
+                <p>These issues will be fixed early next week before we hit RTM.</p>
+
+                <ul>
+                    <li>Running nuget restore on a solution will fail if the solution file is placed in a lower folder hierarchy
+                        than the project files.</li>
+                    <li>Running nuget delete command on a package using the V2 feed will fail. Use V3 feed instead.</li>
+                </ul>
+
+                <h2 id="whats-next">What’s Next</h2>
+
+                <p>The team is cleaning up any remaining issues from the cross-platform support in conjunction with the .NET
+                    Command-Line-Interface release. There are new features we want to implement around project.json capabilities,
+                    and improvements to NuGet.org service that enable a smoother publication process for package authors.</p>
+
+                <p>Download the latest version of the NuGet Visual Studio extension from <a href="https://dist.nuget.org/index.html">dist.nuget.org</a></p>
+
+                <h2 id="help-us-build-our-roadmap">Help us build our roadmap</h2>
+
+                <p>We want NuGet to meet the evolving needs for community and provide an amazing package management and authoring
+                    experience. In order for us to do that, we need your help!!!</p>
+
+                <p>We want to talk to you to understand your pain points and needs. This is the feedback we want to use as the
+                    foundation of our future roadmap. All we need is 15-30 minutes of your time. If you are interested in
+                    providing us with feedback, here is our calendly link - https://calendly.com/harikm/nuget-feedback. Book
+                    any available time that is convenient for you to talk to us. If you would like to send us an email instead,
+                    hit me up at harikm@microsoft.com.</p>
+
+                <p>Our team is super excited about engaging with our customers more deeply and we would be happy to answer any
+                    questions you might have as well. As always, if you run into any issues or have an idea, open an issue
+                    on <a href="https://github.com/Nuget/Home/issues">GitHub</a>.</p>
+
+                <footer>
+
+                    <p class="date">Published April 09, 2016 by Harikrishna Menon </p>
+
+                </footer>
+            </article>
+
+            <article class="post">
+                <header>
+                    <h1><a href="http://blog.nuget.org/20160405/NuGet-3.4-Known-Issues.html">NuGet 3.4 Known Issues</a></h1>
+                </header>
+                <p>After releasing the NuGet 3.4 version last week, the team quickly heard feedback around an issue that made
+                    the NuGet extension very difficult to use. There was a bug in the code that would prevent searching and
+                    installing of packages for some users. After some researching, the team has identified the scenario that
+                    causes this problem and has a work-around to report.</p>
+
+                <p>The key to this issue is in the NuGet configuration in Visual Studio. If you see this when you enter the
+                    Visual Studio Tools -&gt; Options menu and choose NuGet Package Manager -&gt; Package Sources</p>
+
+                <center><img title="Symptom UI" src="./NuGet Team Blog_files/symptomUI.png">
+                </center>
+
+                <p>Our team has identified that this issue appears for developers who have never modified their personal NuGet.config
+                    file at <code class="highlighter-rouge">%appdata%\nuget\nuget.config</code> The install for the NuGet
+                    extension no longer inteprets default content for this file in memory. If you had not customized your
+                    NuGet sources, the new extension would not provide this default content in memory and lead to this scenario.</p>
+
+                <p>Fortunately, there is a simple work-around: delete the empty file on disk and restart Visual Studio 2015.
+                    This will trigger the NuGet extension to save a fresh copy of the default NuGet.config file, which should
+                    be the same as the one that was removed because the qualifying scenario is that it was never modified
+                    in the first place.</p>
+
+                <h2 id="a-fix--a-patch">A fix?  A Patch?</h2>
+
+                <p>The team has identified a handful of issues that will be addressed with a <a href="https://github.com/NuGet/Home/milestones/3.4.2">patch tentatively labeled v3.4.2 on GitHub</a>.
+                    Among these are:</p>
+
+                <ul>
+                    <li>NuGet clients ignore no_proxy setting</li>
+                    <li>‘All sources’ aggregate package source delivers duplicate entries</li>
+                    <li>‘All Sources’ delayed results are not merged with existing results</li>
+                    <li>VS 2015 Update 2 package update hangs</li>
+                    <li>Crash when browsing sources with incorrect icon URLs</li>
+                    <li>FindPackagesById casing changes in 3.4.1 breaks Artifactory integration</li>
+                </ul>
+
+                <p>The team has scheduled this 3.4.2 milestone for completion on April 9, and you should see it available for
+                    download either on the 9th or shortly after that.</p>
+
+                <footer>
+
+                    <p class="date">Published April 05, 2016 by Jeffrey T. Fritz </p>
+
+                </footer>
+            </article>
+
+            <article class="post">
+                <header>
+                    <h1><a href="http://blog.nuget.org/20160330/Introducing-NuGet-3.4.html">Introducing NuGet 3.4</a></h1>
+                </header>
+                <p>The NuGet team is happy to introduce version 3.4 and 3.4.1 of the NuGet clients for Visual Studio 2015. We
+                    shipped v3.4 with Visual Studio 2015 Update 2 and immediately followed that with the 3.4.1 release to
+                    address a small set of issues that were identified after Visual Studio bundled the NuGet 3.4 release.
+                    There were three main areas that the team focused on:</p>
+
+                <ul>
+                    <li>Cross-Platform support</li>
+                    <li>Improved Performance in Visual Studio</li>
+                    <li>Minor user-interface improvements</li>
+                </ul>
+
+                <p>The cross-platform support is being validated, and we plan to release command-line versions of nuget.exe
+                    in the coming weeks.</p>
+
+                <p>We think you’ll find these updates a welcome change that improves your day-to-day interactions with NuGet
+                    packages. The complete list of issues fixed in this version is <a href="https://github.com/NuGet/Home/issues?q=milestone%3A%223.4+RTM%22+is%3Aclosed">available on GitHub</a>.
+                    In this post, we’ll review the important updates in the 3.4 and 3.4.1 versions.</p>
+
+                <h2 id="visual-studio-performance-and-all-sources">Visual Studio Performance and All Sources</h2>
+
+                <p>In the 3.4RC we previously discussed the performance improvements in the UI. We’ve taken those performance
+                    updates and added a few more things that we know you’ll be happy to see. Check this video for a quick
+                    tour of the new enhancements:</p>
+
+                <div style="text-align: center; width: 100%"><iframe width="420" height="315" src="./NuGet Team Blog_files/W6quyUV-cxY.html" frameborder="0" allowfullscreen=""></iframe></div>
+
+                <p>That video is not edited or enhanced for speed, that is real-time search and updates performance from outside
+                    of the pristine Microsoft networks. The package lists on the Updates tab are now sorted alphabetically
+                    and the ‘All Sources’ aggregate NuGet source are available for you to search across in the user-interface.</p>
+
+                <h2 id="changes">Changes</h2>
+
+                <p>The clients have been updated to remove some of the extra interactions that felt unnecessary. For example:</p>
+
+                <ul>
+                    <li>
+                        <p>Packages in project.json can have a floating version number and were updating on every build regardless
+                            of whether the package has an update available. The client has been optimized to only check for
+                            an update and apply it when forced to restore, clean, rebuild, or after a project.json modification.</p>
+                    </li>
+                    <li>
+                        <p>The Visual Studio extension no longer are automatically adds the nuget.org repository source to your
+                            nuget.config files when you use the NuGet configuration user interface.</p>
+                    </li>
+                    <li>
+                        <p>Shared projects no longer have packages restored to them, nor is a lock file written for them</p>
+                    </li>
+                    <li>
+                        <p>The latest project.json schema for DNX is supported in the Visual Studio editor and by the NuGet
+                            extension</p>
+                    </li>
+                </ul>
+
+                <h2 id="breaking-change">Breaking Change</h2>
+
+                <p>We are announcing a breaking change in the way that NuGet clients handle package version numbers. The clients
+                    will now normalize the numbers to a format of <em>major</em>.<em>minor</em>.<em>patch</em>-<em>prerelease</em>                    where major, minor, and patch are all integers. The prerelease is treated as a string and will not be
+                    modified. This means that if you search for version 1 of a package, the NuGet client will search for
+                    version 1.0.0 Similaryly, if you search for package version 1.01.0.0 the client will search for version
+                    1.1.0</p>
+
+                <p>Full details of this change are available in the documents under <a href="http://docs.nuget.org/Create/Versioning#Normalized_Version_Numbers">normalized version numbers</a>.</p>
+
+                <h2 id="whats-next">What’s Next</h2>
+
+                <p>The team is cleaning up any remaining issues from the cross-platform migration in conjunction with the .NET
+                    Command-Line-Interface release. There are new features we want to implement for project.json capabilities
+                    and there are NuGet.org service improvements that we want to implement to better enable the publication
+                    of a team’s collection of packages.</p>
+
+                <p>Download the latest version of the NuGet Visual Studio extension from <a href="https://dist.nuget.org/index.html">dist.nuget.org</a></p>
+
+                <footer>
+
+                    <p class="date">Published March 30, 2016 by Jeffrey T. Fritz </p>
+
+                </footer>
+            </article>
+
+        </section>
+        <section class="archive">
+            <header>
+                <h1>Older Posts</h1>
+            </header>
+            <article>
+                <table class="list">
+
+                    <tbody>
+                        <tr class="post">
+                            <td class="date">March 08, 2016</td>
+                            <td class="title"><a href="http://blog.nuget.org/20160308/Announcing-NuGet-3.4-RC.html">Announcing NuGet 3.4 RC</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">February 16, 2016</td>
+                            <td class="title"><a href="http://blog.nuget.org/20160216/Switching-from-WCF-OData-to-Web-API.html">Switching from WCF OData to Web API</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">January 26, 2016</td>
+                            <td class="title"><a href="http://blog.nuget.org/20160126/nuget-contentFiles-demystified.html">NuGet ContentFiles Demystified</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">January 19, 2016</td>
+                            <td class="title"><a href="http://blog.nuget.org/20160119/nuget-targets.html">NuGet Targets for Project.Json now open source</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">January 13, 2016</td>
+                            <td class="title"><a href="http://blog.nuget.org/20160113/Accelerate-your-NuGet.Server.html">Accelerate your NuGet.Server</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">November 18, 2015</td>
+                            <td class="title"><a href="http://blog.nuget.org/20151118/nuget-3.3.html">NuGet 3.3 Release</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">October 14, 2015</td>
+                            <td class="title"><a href="http://blog.nuget.org/20151014/nuget-userinterface.html">NuGet 3 - Visual Studio User Interface Discussion</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">October 12, 2015</td>
+                            <td class="title"><a href="http://blog.nuget.org/20151012/nuget-3.2.1-rc.html">NuGet 3.2.1-RC and NuGet 2.9-RC released</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">October 08, 2015</td>
+                            <td class="title"><a href="http://blog.nuget.org/20151008/NuGet-3-What-and-Why.html">NuGet 3 - What and Why?</a></td>
+                        </tr>
+
+                        <tr class="post">
+                            <td class="date">October 07, 2015</td>
+                            <td class="title"><a href="http://blog.nuget.org/20151007/Package-Content-and-Removals.html">Package Content and Removals</a></td>
+                        </tr>
+
+                        <tr class="footer">
+                            <td colspan="2">
+                                More posts can be found in the <a href="http://blog.nuget.org/archive.html">full archive</a>.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+
+    </div>
+
+    <footer class="page">
+        <p>
+            <a href="http://www.dotnetfoundation.org"><img src="https://docs.nuget.org/images/dnf.png" title=".NET Foundation" style="border-width:0"></a>
+        </p>
+        <p>
+            © 2011-2016 .NET Foundation - <a href="http://www.nuget.org/policies/terms">Terms of Use</a> - <a href="//www.nuget.org/policies/privacy">Privacy Policy</a> - <a href="http://status.nuget.org">Service status</a>
+        </p>
+    </footer>
+</body>
+
+</html>

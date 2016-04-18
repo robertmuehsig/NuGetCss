@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="./content/nuget.css" rel="stylesheet" type="text/css">
+    <link href="./content/nuget.docs.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <header class="header">
+        <a href="https://nuget.org/"><img class="logo" src="./content/logo.png" title="NuGet Distributions" border="0"></a>
+        <div class="search">
+            <form action="http://www.nuget.org/packages" method="get" novalidate="novalidate">
+                <input id="searchbox" type="search" name="q" placeholder="SEARCH PACKAGES" autocomplete="off">
+                <input type="submit" id="searchbutton" value=" ">
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://www.nuget.org/">Home</a></li>
+                <li><a href="https://www.nuget.org/packages">Packages</a></li>
+                <li><a href="https://docs.nuget.org/">Documentation</a></li>
+                <li class="current"><a href="https://dist.nuget.org/index.html">Downloads</a></li>
+                <li><a href="http://blog.nuget.org/">Blog</a></li>
+                <li><a href="https://www.nuget.org/policies/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div style="clear:both"></div>
+    </header>
+
+    <div class="subnav">
+        <nav class="sub">
+            <ul>
+                <li id="subnav-recent"><a href="http://blog.nuget.org/">Recent Posts</a></li>
+                <li id="subnav-archive"><a href="http://blog.nuget.org/archive.html">Archive</a></li>
+            </ul>
+        </nav>
+        <div class="twitter">
+            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./NuGet Team Blog_files/follow_button.fd774b599f565016d763dd860cb31c79.en.html"
+                style="position: static; visibility: visible; width: 103px; height: 20px;" data-screen-name="nuget"></iframe>
+            <script>
+                ! function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + '://platform.twitter.com/widgets.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, 'script', 'twitter-wjs');
+            </script>
+        </div>
+        <a href="http://blog.nuget.org/feeds/atom.xml" class="feed"><img src="./NuGet Team Blog_files/feed.png" border="0"></a>
+        <div style="clear:both"></div>
+    </div>
+
+   <div class="content">
+        <section>
+
+
+            <aside id="toc">
+                <h3>        <a>Consume</a>
+</h3>
+                <h4>        <a href="http://docs.nuget.org/consume/package-manager-dialog">Package Manager Dialog</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/package-manager-console">Package Manager Console</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/package-restore">Package Restore</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/reinstalling-packages">Reinstalling Packages</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/command-line-reference">Command Line Reference</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/compatibility">Compatibility</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/credential-providers">Credential Providers</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/dispute-resolution">Dispute Resolution</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/installing-nuget">Installing NuGet</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/nuget-config-defaults">NuGet Config Defaults</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/nuget-config-file">NuGet Config File</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/nuget-config-settings">NuGet Config Settings</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/nuget-faq">NuGet FAQ</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/overview">Overview</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/package-manager-console-powershell-reference">Package Manager Console PowerShell Reference</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/package-manager-ui">Package Manager Ui</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/package-visualizer">Package Visualizer</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/projectjson-dependency">ProjectJson Dependency</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/projectjson-format">ProjectJson Format</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/projectjson-intro">ProjectJson Intro</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/search-syntax">Search Syntax</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/setting-up-nuget-powershell-profile">Setting up NuGet PowerShell Profile</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/support-for-native-projects">Support for Native Projects</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/consume/videos">Videos</a>
+</h4>
+                <h3>        <a>Create</a>
+</h3>
+                <h4>        <a href="http://docs.nuget.org/create/analyzers-conventions">Analyzers Conventions</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/configuration-file-and-source-code-transformations">Configuration File and Source Code Transformations</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/creating-and-publishing-a-package">Creating and Publishing a Package</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/creating-and-publishing-a-symbol-package">Creating and Publishing a Symbol Package</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/creating-localized-packages">Creating Localized Packages</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/deleting-packages">Deleting Packages</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/enforced-package-conventions">Enforced Package Conventions</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/extensibility-apis">Extensibility APIs</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/hosting-your-own-nuget-feeds">Hosting Your Own NuGet Feeds</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/invoking-nuget-services-from-inside-visual-studio">Invoking NuGet Services from inside Visual Studio</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/managing-package-owners">Managing Package Owners</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/nuspec-reference">Nuspec Reference</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/package-conventions">Package Conventions</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/packages-in-visual-studio-templates">Packages in Visual Studio Templates</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/project-system-support">Project System Support</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/setting-up-local-gallery">Setting Up Local Gallery</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/targetframeworks">TargetFrameworks</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/transforming-configuration-files-using-dottransform-files">Transforming Configuration Files Using dotTransform Files</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/using-a-gui-to-build-packages">Using a GUI to build packages</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/uwp-create">uwp create</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/create/versioning">Versioning</a>
+</h4>
+                <h3>        <a>Contribute</a>
+</h3>
+                <h4>        <a href="http://docs.nuget.org/contribute/branding-the-nuget-gallery">Branding the NuGet Gallery</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/build-and-run-nuget-gallery">Build And Run NuGet Gallery</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/coding-guidelines">Coding Guidelines</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/contributing-to-nuget">Contributing to NuGet</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/contributing-to-nuget-documentation">Contributing to NuGet Documentation</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/ecosystem">Ecosystem</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/functional-testing">Functional Testing</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/governance">Governance</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/nuget-client-test-plan">NuGet Client Test Plan</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/nuget-gallery-test-plan">NuGet Gallery Test Plan</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/project-contribution-guidelines">Project Contribution Guidelines</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/release-branches">Release Branches</a>
+</h4>
+                <h4>        <a href="http://docs.nuget.org/contribute/setting-up-the-nuget-development-environment">Setting up the NuGet Development Environment</a>
+</h4>
+            </aside>
+
+            <div class="article-boxes">
+                <article class="box">
+                    <header>
+                        <h1><span class="icon overview">Overview</span></h1>
+                    </header>
+                    <p>
+                        Welcome to the NuGet Docs. As the name implies, this site contains all the information that you will need to get up and running
+                        with NuGet, whether you are new to NuGet and need information for installing and managing packages,
+                        whether you are a seasoned contributor to one of the NuGet projects, or whether you are at some point
+                        in between.
+                    </p>
+                    <p>
+                        Based on the amount and diversity of content, the site has been organized into 3 top level content groups based on the top
+                        3 types of ways in which people tend to experience NuGet: as a package <i>consumer</i>,
+                        a package <i>creator</i>, or a project <i>contributor</i>. Please select one of these options to
+                        begin exploring the related body of content.
+                    </p>
+                    <p>
+                        Finally, please note that this site itself is an open source project, and contains the wealth of information that it does
+                        because people like you have contributed to it. If you find any information that is incorrect on
+                        the site, or if there is a topic that you believe should be added to the site, please visit our
+                        <a
+                            href="https://github.com/nuget/nugetdocs" target="_blank">GitHub repository</a> and either file an issue on the issue tracker or, better yet, send us a pull
+                            request and contribute your knowledge to the rest of the NuGet community.
+                    </p>
+                </article>
+
+                <article class="box links">
+                    <header>
+                        <h1><span class="icon quick-link">Latest Release: 3.3</span></h1>
+                    </header>
+                    <p>
+                        NuGet 3.3 was released on November 30, 2015, is only available with Visual Studio 2015, and was included in the distribution
+                        of Visual Studio 2015 Update 1.
+                    </p>
+                    <p>
+                        NuGet 3.3 was released November 30, 2015 with a number of significant user interface improvements and fixes for the 3.2 release
+                        and is available from both <a href="http://dist.nuget.org/index.html" title="dist.nuget.org">dist.nuget.org</a>                        and the <a href="https://visualstudiogallery.msdn.microsoft.com/5d345edc-2e2d-4a9c-b73b-d53956dc458d?SRC=Home"
+                            title="Visual Studio Gallery">Visual Studio Gallery</a>.
+                    </p>
+                    <footer>
+                        <a href="http://docs.nuget.org/release-notes/nuget-3.3" title="View Release Notes">View Release Notes</a>
+                        <span>&nbsp;|&nbsp;</span>
+                        <a href="http://dist.nuget.org/index.html" title="Download">Download</a>
+                    </footer>
+                </article>
+
+                <article class="box links">
+                    <header>
+                        <h1><span class="icon quick-link">Latest Release for Visual Studio 2013: 2.8.6</span></h1>
+                    </header>
+                    <p>
+                        NuGet 2.8.6 was released on July 20, 2015.
+                    </p>
+                    <p>
+                        NuGet 2.8.6 is a minor update to our 2.8.5 VSIX with updates to support enhancements coming in the Windows 10 SDK.
+                    </p>
+                    <footer>
+                        <a href="http://docs.nuget.org/release-notes/nuget-2.8.6" title="View Release Notes">View Release Notes</a>
+                        <span>&nbsp;|&nbsp;</span>
+                        <a href="http://dist.nuget.org/index.html" title="Download">Download</a>
+                    </footer>
+                </article>
+
+                <article class="box links">
+                    <header>
+                        <h1><span class="icon most-installed">Consume</span></h1>
+                    </header>
+                    <p>
+                        Package consumption is far and away the most common type of activity for NuGet users. This section of NuGet documentation
+                        provides everything needed to get started with installing and using NuGet to install and manage packages
+                        in a project.
+                    </p>
+                    <p>Topics range from installing NuGet to using the different client tools to using the package restore workflow.</p>
+                    <footer>
+                        <a href="http://docs.nuget.org/consume" title="Consume Packages">Consume</a>
+                    </footer>
+                </article>
+
+                <article class="box links">
+                    <header>
+                        <h1><span class="icon upload">Create</span></h1>
+                    </header>
+                    <p>
+                        After having built projects that use NuGet packages for different pieces of functionality, many users wish to componentize
+                        their own projects as NuGet packages and distribute them, either internally to their organization
+                        or publically on the NuGet gallery. This process of using components to build new components is where
+                        the true power of NuGet packages can be seen.
+                    </p>
+                    <p>
+                        Topics in this section range from creating packages with the nuget.exe command to leveraging NuGet's package metadata format
+                        and package structure conventions to publishing a package to an online gallery.
+                    </p>
+                    <footer>
+                        <a href="http://docs.nuget.org/create" title="Create Packages">Create</a>
+                    </footer>
+                </article>
+
+                <article class="box links">
+                    <header>
+                        <h1><span class="icon contribute">Contribute</span></h1>
+                    </header>
+                    <p>
+                        As an open-source project, NuGet's success is largely dependent on the support of its users. There are several different
+                        facets of the NuGet project, and several different ways that you can contribute to each of them.
+                    </p>
+                    <p>
+                        This section walks through those different methods of contribution. Additionally, for code contribution, there are also specific
+                        guidelines for coding, branching structure, setting up a development environment, and writing and
+                        running tests.
+                    </p>
+                    <footer>
+                        <a href="http://docs.nuget.org/contribute" title="Contribute">Contribute</a>
+                    </footer>
+                </article>
+                <div style="clear:both"></div>
+            </div>
+
+            <div style="clear:both;"></div>
+        </section>
+    </div>
+
+    <footer class="page">
+        <p>
+            <a href="http://www.dotnetfoundation.org"><img src="https://docs.nuget.org/images/dnf.png" title=".NET Foundation" style="border-width:0"></a>
+        </p>
+        <p>
+            © 2011-2016 .NET Foundation - <a href="http://www.nuget.org/policies/terms">Terms of Use</a> - <a href="//www.nuget.org/policies/privacy">Privacy Policy</a> - <a href="http://status.nuget.org">Service status</a>
+        </p>
+    </footer>
+</body>
+
+</html>
